@@ -15,9 +15,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
         $this->call([
         RatingSeeder::class,
     ]);
+=======
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
         // User::factory(10)->create();
 
         User::factory()->create([

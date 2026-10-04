@@ -58,6 +58,7 @@
 <body class="d-flex flex-column min-vh-100">
 
     <!-- Navbar -->
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
         
@@ -119,6 +120,56 @@
 
     </div>
 </nav>
+=======
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
+        <div class="container">
+            <!-- Logo di Kiri (Logo Sekolah & Logo FrameProject) -->
+        <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="{{ url('/') }}">
+            <img src="{{ asset('images/logo-smkn4.svg') }}" alt="Logo SMKN 4 Bogor" height="40">
+            
+            <!-- Garis Pembatas Tipis -->
+            <div class="border-end border-white opacity-50 my-1" style="height: 24px;"></div>
+            
+            <img src="{{ asset('images/LogoFrame.png') }}" alt="Logo FrameProject" height="35">
+        </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav position-absolute start-50 translate-middle-x">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}#Beranda">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 {{ request()->is('berita*') ? 'active' : '' }}" href="{{ url('/berita') }}">Berita</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 {{ request()->is('jurusan*') ? 'active' : '' }}" href="{{ url('/jurusan') }}">Jurusan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3 {{ request()->is('galeri*') ? 'active' : '' }}" href="{{ url('/galeri') }}">Galeri</a>
+                    </li>
+                </ul>
+
+                <div class="ms-auto">
+                    @if (Route::has('login'))
+                        @auth
+                            <a href="{{ route('admin.dashboard') }}" class="btn btn-purple border-0 fw-semibold">
+                                <i class="bi bi-speedometer2 me-1"></i> Dashboard
+                            </a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-purple border-0 fw-semibold">
+                                <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
+                            </a>
+                        @endauth
+                    @endif
+                </div>
+            </div>
+        </div>
+    </nav>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
 
     <!-- Header Galeri -->
     <section class="pt-5 mt-5 pb-4 bg-white border-bottom">
@@ -157,6 +208,7 @@
         </div>
     </section>
 
+<<<<<<< HEAD
     <!-- Footer -->
     <footer class="bg-dark text-white pt-5 pb-4 mt-3">
         <div class="container text-center text-md-start">
@@ -167,10 +219,23 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-md-start gap-2 mb-3">
                         <img src="{{ asset('images/logo-smkn4.svg') }}" alt="Logo SMKN 4 Bogor" height="40">
                         <h5 class="fw-bold text-white mb-0 fs-6 fs-md-5">SMKN 4 KOTA BOGOR</h5>
+=======
+    <!-- Footer (Otomatis terkunci di paling bawah layar) -->
+    <footer class="bg-dark text-white pt-5 pb-4 mt-auto">
+        <div class="container text-center text-md-start">
+            <div class="row g-4">
+
+                <!-- Kolom 1: Profil Sekolah & Logo -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <img src="{{ asset('images/logo-smkn4.svg') }}" alt="Logo SMKN 4 Bogor" height="45">
+                        <h5 class="fw-bold text-white mb-0">SMKN 4 KOTA BOGOR</h5>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                     </div>
                     <p class="text-secondary small leading-relaxed">
                         Mencetak generasi unggul dalam teknologi, berkarakter, dan siap bersaing di masa depan melalui pendidikan kejuruan yang berkualitas.
                     </p>
+<<<<<<< HEAD
                     <div class="d-flex gap-3 mt-3 justify-content-center justify-content-md-start">
                         <a href="https://www.facebook.com/smknegeri4bogor/?locale=id_ID" target="_blank" class="text-white bg-secondary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-decoration-none" style="width: 38px; height: 38px;">
                             <i class="bi bi-facebook"></i>
@@ -179,16 +244,35 @@
                             <i class="bi bi-instagram"></i>
                         </a>
                         <a href="https://www.youtube.com/@smknegeri4bogor905" target="_blank" class="text-white bg-secondary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-decoration-none" style="width: 38px; height: 38px;">
+=======
+                    <!-- Sosmed Icons -->
+                    <div class="d-flex gap-3 mt-3">
+                        <a href="https://www.facebook.com/smknegeri4bogor/?locale=id_ID" class="text-white bg-secondary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-decoration-none" style="width: 38px; height: 38px;">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/smkn4kotabogor/" class="text-white bg-secondary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-decoration-none" style="width: 38px; height: 38px;">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/@smknegeri4bogor905" class="text-white bg-secondary bg-opacity-25 rounded-circle d-flex align-items-center justify-content-center text-decoration-none" style="width: 38px; height: 38px;">
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                             <i class="bi bi-youtube"></i>
                         </a>
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Kolom 2 -->
                 <div class="col-6 col-md-6 col-lg-2">
                     <h6 class="fw-bold text-uppercase mb-3 text-primary small">Navigasi</h6>
                     <ul class="list-unstyled small mb-0 d-flex flex-column gap-2">
                         <li><a href="#Beranda" class="text-secondary text-decoration-none">Beranda</a></li>
+=======
+                <!-- Kolom 2: Navigasi Cepat -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold text-uppercase mb-3 text-primary">Navigasi</h6>
+                    <ul class="list-unstyled small mb-0 d-flex flex-column gap-2">
+                        <li><a href="{{ url('/') }}#Beranda" class="text-secondary text-decoration-none">Beranda</a></li>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                         <li><a href="#tentang" class="text-secondary text-decoration-none">Tentang Sekolah</a></li>
                         <li><a href="#Berita" class="text-secondary text-decoration-none">Berita Sekolah</a></li>
                         <li><a href="#jurusan" class="text-secondary text-decoration-none">Program Keahlian</a></li>
@@ -196,6 +280,7 @@
                     </ul>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Kolom 3 -->
                 <div class="col-6 col-md-6 col-lg-3">
                     <h6 class="fw-bold text-uppercase mb-3 text-primary small">Jurusan</h6>
@@ -220,6 +305,32 @@
                             <span>(0251) 8242411</span>
                         </li>
                         <li class="d-flex gap-2 align-items-center justify-content-center justify-content-md-start">
+=======
+                <!-- Kolom 3: Jurusan -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-uppercase mb-3 text-primary">Jurusan</h6>
+                    <ul class="list-unstyled small mb-0 d-flex flex-column gap-2">
+                        <li><span class="text-secondary">PPLG (Pengembangan Perangkat Lunak)</span></li>
+                        <li><span class="text-secondary">TKT (Teknik Jaringan Komputer)</span></li>
+                        <li><span class="text-secondary">TO (Teknik Otomotif)</span></li>
+                        <li><span class="text-secondary">TP (Teknik Pengelasan)</span></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 4: Kontak Sekolah -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="fw-bold text-uppercase mb-3 text-primary">Kontak Kami</h6>
+                    <ul class="list-unstyled small mb-0 d-flex flex-column gap-3 text-secondary">
+                        <li class="d-flex gap-2">
+                            <i class="bi bi-geo-alt-fill text-primary"></i>
+                            <span>Jl. Raya Tajur, Kp. Muara, RT.03/RW.04, Sindangrasa, Bogor Timur, Kota Bogor</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-center">
+                            <i class="bi bi-telephone-fill text-primary"></i>
+                            <span>(0251) 8242411</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-center">
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                             <i class="bi bi-envelope-fill text-primary"></i>
                             <span>info@smkn4bogor.sch.id</span>
                         </li>
@@ -230,12 +341,20 @@
 
             <hr class="border-secondary my-4 opacity-25">
 
+<<<<<<< HEAD
+=======
+            <!-- Bottom Copyright -->
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
             <div class="row align-items-center small text-secondary">
                 <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
                     &copy; {{ date('Y') }} SMKN 4 Kota Bogor. All rights reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
+<<<<<<< HEAD
                     <span>Dikembangkan oleh <strong class="text-white">Tim FrameProject</strong></span>
+=======
+                    <span>Dikembangkan oleh <strong class="text-white">Tim SMKN 4 Bogor</strong></span>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                 </div>
             </div>
         </div>

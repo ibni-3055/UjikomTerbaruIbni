@@ -50,6 +50,7 @@
     <header id="Beranda" class="hero-header d-flex flex-column justify-content-between position-relative" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url('{{ asset('images/hero-sekolah.jpg') }}'); min-height: 100vh; background-size: cover; background-position: center;">
         
         <!-- Navbar -->
+<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
         
@@ -111,17 +112,88 @@
 
     </div>
 </nav>
+=======
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
+            <div class="container position-relative d-flex align-items-center justify-content-between">
+                
+                <!-- Logo di Kiri (Logo Sekolah & Logo FrameProject) -->
+<a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="{{ url('/') }}">
+    <img src="{{ asset('images/logo-smkn4.svg') }}" alt="Logo SMKN 4 Bogor" style="height: 40px; width: auto; max-width: 150px; object-fit: contain;">
+    
+    <!-- Garis Pembatas Tipis -->
+    <div class="border-end border-white opacity-50 my-1 d-none d-sm-block" style="height: 24px;"></div>
+    
+    <img src="{{ asset('images/LogoFrame.png') }}" alt="Logo FrameProject" style="height: 32px; width: auto; max-width: 120px; object-fit: contain;">
+</a>
+                
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Container Menu & Tombol -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Menu Utama Desktop -->
+                    <ul class="navbar-nav mx-auto d-none d-lg-flex">
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 {{ request()->is('/') ? 'active' : '' }}" href="#Beranda">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 {{ request()->is('berita*') ? 'active' : '' }}" href="{{ url('/berita') }}">Berita</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 {{ request()->is('jurusan*') ? 'active' : '' }}" href="{{ url('/jurusan') }}">Jurusan</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-2 {{ request()->is('galeri*') ? 'active' : '' }}" href="{{ url('/galeri') }}">Galeri</a>
+                        </li>
+                    </ul>
+
+                    <!-- Menu untuk Tampilan Mobile/HP -->
+                    <ul class="navbar-nav d-lg-none my-2 text-center">
+                        <li class="nav-item"><a class="nav-link py-2" href="#Beranda">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link py-2" href="{{ url('/berita') }}">Berita</a></li>
+                        <li class="nav-item"><a class="nav-link py-2" href="{{ url('/jurusan') }}">Jurusan</a></li>
+                        <li class="nav-item"><a class="nav-link py-2" href="{{ url('/galeri') }}">Galeri</a></li>
+                    </ul>
+
+                    <!-- Tombol Masuk/Dashboard -->
+                    <div class="ms-lg-auto text-center pt-2 pt-lg-0">
+                        @if (Route::has('login'))
+                            @auth
+                                <a href="{{ route('admin.dashboard') }}" class="btn btn-purple border-0 fw-semibold w-100 w-lg-auto px-4 py-2">
+                                    <i class="bi bi-speedometer2 me-1"></i> Dashboard
+                                </a>
+                            @else
+                                <a href="{{ route('login') }}" class="btn btn-purple border-0 fw-semibold w-100 w-lg-auto px-4 py-2">
+                                    <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
+                                </a>
+                            @endauth
+                        @endif
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
 
         <!-- Teks Hero Tengah -->
         <div class="container my-auto pt-5 pb-4 text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
+<<<<<<< HEAD
                     <p class="fs-5 fs-md-3 fw-light mb-2 text-white">Selamat Datang Di Website</p>
+=======
+                    <p class="fs-5 fs-md-3 fw-light mb-2 text-white">Selamat Datang di Website</p>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                     <h1 class="hero-title fw-bold mb-3 text-white" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(50px, 11vw, 170px); line-height: 1;">
                         SMK NEGERI 4<br>Kota Bogor
                     </h1>
                     <p class="lead mb-4 text-light col-lg-8 col-md-10 mx-auto fs-6 fs-md-5">
+<<<<<<< HEAD
                         Bersama IbyLab, wujudkan solusi digital yang inovatif, cepat, dan terpercaya untuk masa depan Sekolah Anda.
+=======
+                        Mencetak generasi unggul dalam teknologi, berkarakter, dan siap bersaing di Masa Depan.
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                     </p>
                     <a href="#tentang" class="btn btn-purple btn-lg fw-semibold px-4 py-2 fs-6">
                         Tentang Sekolah <i class="bi bi-arrow-right ms-2"></i>
@@ -513,6 +585,7 @@
     </div>
 </section>
 
+<<<<<<< HEAD
     <!-- Card Rating Modern -->
 <div class="card border-0 shadow-sm rounded-4 p-4 text-center mx-auto my-4" style="max-width: 380px; background: linear-gradient(145deg, #ffffff, #f8f9fa);">
 
@@ -608,6 +681,78 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 </script>
+=======
+    <!-- Section Rating Website -->
+    <section class="py-4 bg-light border-top">
+        <div class="container text-center">
+            <h6 class="fw-bold mb-2">Beri Penilaian untuk Website Kami</h6>
+            <p class="text-muted small mb-3">
+                Bagaimana pengalaman Anda saat menjelajahi website SMKN 4 Bogor?
+            </p>
+
+            <div class="star-rating d-inline-flex gap-1 fs-3 mb-2" id="starContainer">
+                <i class="bi bi-star star-btn" data-value="1"></i>
+                <i class="bi bi-star star-btn" data-value="2"></i>
+                <i class="bi bi-star star-btn" data-value="3"></i>
+                <i class="bi bi-star star-btn" data-value="4"></i>
+                <i class="bi bi-star star-btn" data-value="5"></i>
+            </div>
+
+            <div id="ratingMessage" class="small mt-1 text-success d-none"></div>
+        </div>
+    </section>
+
+    <!-- JavaScript Rating -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const stars = document.querySelectorAll('.star-btn');
+        const message = document.getElementById('ratingMessage');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('mouseover', () => {
+                highlightStars(star.dataset.value);
+            });
+
+            star.addEventListener('mouseleave', () => {
+                highlightStars(selectedRating);
+            });
+
+            star.addEventListener('click', () => {
+                selectedRating = star.dataset.value;
+                highlightStars(selectedRating);
+
+                fetch("{{ route('rating.store') }}", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    },
+                    body: JSON.stringify({
+                        stars: selectedRating
+                    })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        message.classList.remove('d-none');
+                        message.innerText = data.message;
+                        document.getElementById('starContainer').style.pointerEvents = 'none';
+                    }
+                })
+                .catch(error => console.error(error));
+            });
+        });
+
+        function highlightStars(count) {
+            stars.forEach(star => {
+                star.classList.toggle('bi-star-fill', star.dataset.value <= count);
+                star.classList.toggle('bi-star', star.dataset.value > count);
+            });
+        }
+    });
+    </script>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
 
     <!-- Footer -->
     <footer class="bg-dark text-white pt-5 pb-4 mt-3">
@@ -687,7 +832,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     &copy; {{ date('Y') }} SMKN 4 Kota Bogor. All rights reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
+<<<<<<< HEAD
                     <span>Dikembangkan oleh <strong class="text-white">Tim FrameProject</strong></span>
+=======
+                    <span>Dikembangkan oleh <strong class="text-white">Tim SMKN 4 Bogor</strong></span>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                 </div>
             </div>
         </div>
@@ -695,6 +844,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<<<<<<< HEAD
 
     <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -743,5 +893,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+=======
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
 </body>
 </html>

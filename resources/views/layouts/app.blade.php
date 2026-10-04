@@ -254,12 +254,19 @@
                     <div class="d-flex gap-2">
                         <button type="button" class="btn btn-light w-50 fw-semibold rounded-3 py-2 small" data-bs-dismiss="modal">Batal</button>
                         
+<<<<<<< HEAD
                         <form method="POST" action="{{ route('logout') }}">
     @csrf
     <button type="submit" class="btn btn-danger w-100 fw-semibold rounded-3 py-2 small shadow-sm">
         <i class="bi bi-box-arrow-right me-2"></i> Keluar
     </button>
 </form>
+=======
+                        <form method="POST" action="{{ route('logout') }}" class="w-50">
+                            @csrf
+                            <button type="submit" class="btn btn-danger w-100 fw-semibold rounded-3 py-2 small shadow-sm">Keluar</button>
+                        </form>
+>>>>>>> 517743f42db5100355eebadb92895218bc45f120
                     </div>
                 </div>
             </div>
