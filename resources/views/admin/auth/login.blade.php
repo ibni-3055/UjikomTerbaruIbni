@@ -64,21 +64,10 @@
                     @enderror
                   </div>
 
-                  <!-- Remember Me (Opsional) -->
-                  <div class="form-check mb-4">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember_me">
-                    <label class="form-check-label text-muted" for="remember_me">Ingat saya</label>
-                  </div>
-
                   <!-- Tombol Submit Login -->
                   <div class="pt-1 mb-4 d-grid">
                     <button class="btn btn-primary btn-lg fw-semibold" type="submit">Masuk</button>
                   </div>
-
-                  <!-- Link Lupa Password & Kembali -->
-                  @if (Route::has('password.request'))
-                    <a class="small text-muted" href="{{ route('password.request') }}">Lupa kata sandi?</a>
-                  @endif
                   
                   <div class="mt-3">
                     <a href="{{ url('/') }}" class="small text-decoration-none"><i class="bi bi-arrow-left"></i> Kembali ke Beranda</a>

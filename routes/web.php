@@ -12,12 +12,9 @@ use App\Models\Kelas;
 use App\Models\Berita;
 use App\Models\Galeri;
 
-<<<<<<< HEAD
 // Database Bintang
 Route::post('/api/ratings', [RatingController::class, 'store']);
 
-=======
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
 /*
 |--------------------------------------------------------------------------
 | 1. RUTE PUBLIK (Dapat Diakses Semua Pengunjung)

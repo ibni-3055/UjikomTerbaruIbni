@@ -222,7 +222,7 @@
                         </li>
                         <li class="d-flex gap-2 align-items-center">
                             <i class="bi bi-telephone-fill text-primary"></i>
-                            <span>(0251) 8242411</span>
+                            <span>+62 0858 9021 3624</span>
                         </li>
                         <li class="d-flex gap-2 align-items-center">
                             <i class="bi bi-envelope-fill text-primary"></i>
@@ -241,7 +241,7 @@
                     &copy; {{ date('Y') }} SMKN 4 Kota Bogor. All rights reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-                    <span>Dikembangkan oleh <strong class="text-white">Tim SMKN 4 Bogor</strong></span>
+                    <span>Dikembangkan oleh <strong class="text-white">Tim FrameProject</strong></span>
                 </div>
             </div>
         </div>

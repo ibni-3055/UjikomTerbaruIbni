@@ -152,14 +152,35 @@
                                                 <input type="text" name="name" class="form-control bg-light rounded-3" value="{{ $u->name }}" required>
                                             </div>
                                             <div class="mb-2">
-                                                <label class="form-label small fw-semibold text-muted">Password Baru <span class="fw-normal text-muted">(Kosongkan jika tidak diubah)</span></label>
-                                                <div class="input-group">
-                                                    <input type="password" id="editPassword{{ $u->id }}" name="password" class="form-control bg-light border-end-0 rounded-start-3" minlength="8" placeholder="••••••••">
-                                                    <button class="btn btn-light border border-start-0 text-muted rounded-end-3" type="button" onclick="togglePassword('editPassword{{ $u->id }}', this)">
-                                                        <i class="bi bi-eye-slash"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
+    <label class="form-label small fw-semibold text-muted">
+        Password
+    </label>
+
+    <div class="input-group">
+        <input
+            type="password"
+            id="editPassword{{ $u->id }}"
+            name="password"
+            class="form-control bg-light border-end-0 rounded-start-3"
+            minlength="8"
+            placeholder="Masukkan password baru jika ingin mengganti"
+        >
+
+        <button
+            class="btn btn-light border border-start-0 text-muted rounded-end-3"
+            type="button"
+            onclick="togglePassword('editPassword{{ $u->id }}', this)"
+        >
+            <i class="bi bi-eye-slash"></i>
+        </button>
+    </div>
+
+    <small class="text-muted d-block mt-2">
+        <i class="bi bi-shield-lock me-1"></i>
+        Password lama tersimpan secara terenkripsi satu arah
+        dan tidak dapat ditampilkan.
+    </small>
+</div>
                                         </div>
                                         
                                         <div class="modal-footer bg-light p-3 border-top-0">

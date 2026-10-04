@@ -40,7 +40,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="nama_tempat" class="form-label small fw-semibold text-muted">Nama Tempat / Judul Foto</label>
-                    <input type="text" name="nama_tempat" id="nama_tempat" class="form-control bg-light rounded-3" placeholder="Contoh: Lab Komputer" value="{{ old('nama_tempat') }}" required>
+                    <input type="text" name="nama_tempat" id="nama_tempat" class="form-control bg-light rounded-3" placeholder="Contoh: Kegiatan Fashion Show" value="{{ old('nama_tempat') }}" required>
                 </div>
 
                 <div class="mb-3">

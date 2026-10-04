@@ -42,6 +42,116 @@
         .star-btn:hover {
             transform: scale(1.2);
         }
+
+        /* Card galeri halaman utama */
+.gallery-preview {
+    display: block;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.gallery-card-home {
+    height: 240px;
+    width: 100%;
+    background: #f5f5f5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-home-image {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-home-overlay {
+    height: 70%;
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.85) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.gallery-preview:hover .gallery-card-home {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.gallery-preview:hover .gallery-home-image {
+    transform: scale(1.06);
+}
+
+.gallery-zoom-icon {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-preview:hover .gallery-zoom-icon {
+    opacity: 1;
+}
+
+/* Modal detail galeri */
+.gallery-modal-content {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+}
+
+.gallery-modal-image {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    max-height: 600px;
+    object-fit: contain;
+    background: #111;
+}
+
+.gallery-modal-info {
+    padding: 24px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-modal-title {
+    font-size: 19px;
+    font-weight: 700;
+    color: #1e1b4b;
+    overflow-wrap: anywhere;
+}
+
+.gallery-modal-date {
+    font-size: 13px;
+    color: #8b8795;
+}
+
+@media (max-width: 767px) {
+    .gallery-card-home {
+        height: 220px;
+    }
+
+    .gallery-modal-image {
+        min-height: 250px;
+        max-height: 400px;
+    }
+
+    .gallery-modal-info {
+        padding: 20px;
+    }
+}
     </style>
 </head>
 <body>
@@ -50,7 +160,6 @@
     <header id="Beranda" class="hero-header d-flex flex-column justify-content-between position-relative" style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.7) 100%), url('{{ asset('images/hero-sekolah.jpg') }}'); min-height: 100vh; background-size: cover; background-position: center;">
         
         <!-- Navbar -->
-<<<<<<< HEAD
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
         
@@ -112,88 +221,18 @@
 
     </div>
 </nav>
-=======
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom py-3 fixed-top">
-            <div class="container position-relative d-flex align-items-center justify-content-between">
-                
-                <!-- Logo di Kiri (Logo Sekolah & Logo FrameProject) -->
-<a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="{{ url('/') }}">
-    <img src="{{ asset('images/logo-smkn4.svg') }}" alt="Logo SMKN 4 Bogor" style="height: 40px; width: auto; max-width: 150px; object-fit: contain;">
-    
-    <!-- Garis Pembatas Tipis -->
-    <div class="border-end border-white opacity-50 my-1 d-none d-sm-block" style="height: 24px;"></div>
-    
-    <img src="{{ asset('images/LogoFrame.png') }}" alt="Logo FrameProject" style="height: 32px; width: auto; max-width: 120px; object-fit: contain;">
-</a>
-                
-                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Container Menu & Tombol -->
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <!-- Menu Utama Desktop -->
-                    <ul class="navbar-nav mx-auto d-none d-lg-flex">
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 {{ request()->is('/') ? 'active' : '' }}" href="#Beranda">Beranda</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 {{ request()->is('berita*') ? 'active' : '' }}" href="{{ url('/berita') }}">Berita</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 {{ request()->is('jurusan*') ? 'active' : '' }}" href="{{ url('/jurusan') }}">Jurusan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link mx-2 {{ request()->is('galeri*') ? 'active' : '' }}" href="{{ url('/galeri') }}">Galeri</a>
-                        </li>
-                    </ul>
-
-                    <!-- Menu untuk Tampilan Mobile/HP -->
-                    <ul class="navbar-nav d-lg-none my-2 text-center">
-                        <li class="nav-item"><a class="nav-link py-2" href="#Beranda">Beranda</a></li>
-                        <li class="nav-item"><a class="nav-link py-2" href="{{ url('/berita') }}">Berita</a></li>
-                        <li class="nav-item"><a class="nav-link py-2" href="{{ url('/jurusan') }}">Jurusan</a></li>
-                        <li class="nav-item"><a class="nav-link py-2" href="{{ url('/galeri') }}">Galeri</a></li>
-                    </ul>
-
-                    <!-- Tombol Masuk/Dashboard -->
-                    <div class="ms-lg-auto text-center pt-2 pt-lg-0">
-                        @if (Route::has('login'))
-                            @auth
-                                <a href="{{ route('admin.dashboard') }}" class="btn btn-purple border-0 fw-semibold w-100 w-lg-auto px-4 py-2">
-                                    <i class="bi bi-speedometer2 me-1"></i> Dashboard
-                                </a>
-                            @else
-                                <a href="{{ route('login') }}" class="btn btn-purple border-0 fw-semibold w-100 w-lg-auto px-4 py-2">
-                                    <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
-                                </a>
-                            @endauth
-                        @endif
-                    </div>
-                </div>
-
-            </div>
-        </nav>
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
 
         <!-- Teks Hero Tengah -->
         <div class="container my-auto pt-5 pb-4 text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-12">
-<<<<<<< HEAD
                     <p class="fs-5 fs-md-3 fw-light mb-2 text-white">Selamat Datang Di Website</p>
-=======
-                    <p class="fs-5 fs-md-3 fw-light mb-2 text-white">Selamat Datang di Website</p>
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
                     <h1 class="hero-title fw-bold mb-3 text-white" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(50px, 11vw, 170px); line-height: 1;">
                         SMK NEGERI 4<br>Kota Bogor
                     </h1>
                     <p class="lead mb-4 text-light col-lg-8 col-md-10 mx-auto fs-6 fs-md-5">
-<<<<<<< HEAD
                         Bersama IbyLab, wujudkan solusi digital yang inovatif, cepat, dan terpercaya untuk masa depan Sekolah Anda.
-=======
                         Mencetak generasi unggul dalam teknologi, berkarakter, dan siap bersaing di Masa Depan.
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
                     </p>
                     <a href="#tentang" class="btn btn-purple btn-lg fw-semibold px-4 py-2 fs-6">
                         Tentang Sekolah <i class="bi bi-arrow-right ms-2"></i>
@@ -518,66 +557,92 @@
 <!-- Section Galeri Sekolah -->
 <section id="galeri" class="py-4 py-md-5 bg-white">
     <div class="container py-2 py-md-4">
-        
+
         <div class="text-center mb-4 mb-md-5">
-            <h2 class="fw-bold text-uppercase fs-3 fs-md-2" style="font-family: 'Google Sans', sans-serif; color: #1e1b4b;">GALERI SEKOLAH</h2>
-            <p class="text-muted small mb-0 px-2" style="font-family: 'Google Sans', sans-serif;">
-                Dokumentasi kegiatan, fasilitas, dan momen berharga di lingkungan SMK Negeri 4 Kota Bogor.
+            <h2 class="fw-bold text-uppercase fs-3 fs-md-2"
+                style="font-family: 'Google Sans', sans-serif; color: #1e1b4b;">
+                GALERI SEKOLAH
+            </h2>
+
+            <p class="text-muted small mb-0 px-2"
+               style="font-family: 'Google Sans', sans-serif;">
+                Dokumentasi kegiatan, fasilitas, dan momen berharga
+                di lingkungan SMK Negeri 4 Kota Bogor.
             </p>
         </div>
 
         <div class="row g-3 g-md-4 justify-content-center">
-            
             @forelse ($galeris->take(3) as $item)
+
+                @php
+                    $fotoPath = $item->foto ?? $item->gambar ?? $item->image ?? null;
+
+                    $namaFoto = $item->nama_tempat
+                        ?? $item->judul
+                        ?? $item->nama
+                        ?? $item->keterangan
+                        ?? 'Dokumentasi Sekolah';
+
+                    $fotoUrl = $fotoPath
+                        ? asset('storage/' . $fotoPath)
+                        : asset('images/hero-sekolah.jpg');
+
+                    $tanggalFoto = $item->created_at
+                        ? $item->created_at->format('d M Y')
+                        : '-';
+                @endphp
+
                 <div class="col-12 col-sm-6 col-lg-4">
-                    <div class="position-relative overflow-hidden rounded-4 shadow-sm" style="height: 240px; width: 100%;">
-                        
-                        @php
-                            $fotoPath = $item->foto ?? $item->gambar ?? $item->image ?? null;
-                            $namaFoto = $item->judul ?? $item->nama ?? $item->keterangan ?? 'Kegiatan Sekolah';
-                        @endphp
+                    <button
+                        type="button"
+                        class="gallery-preview w-100 text-start"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryDetailModal"
+                        data-image="{{ $fotoUrl }}"
+                        data-title="{{ $namaFoto }}"
+                        data-date="{{ $tanggalFoto }}"
+                    >
+                        <div class="gallery-card-home position-relative overflow-hidden rounded-4 shadow-sm">
 
-                        @if($fotoPath)
-                            <img src="{{ asset('storage/' . $fotoPath) }}" 
-                                 alt="{{ $namaFoto }}" 
-                                 class="w-100 h-100"
-                                 style="object-fit: cover;">
-                        @else
-                            <img src="{{ asset('images/hero-sekolah.jpg') }}" 
-                                 alt="{{ $namaFoto }}" 
-                                 class="w-100 h-100"
-                                 style="object-fit: cover;">
-                        @endif
+                            <img
+                                src="{{ $fotoUrl }}"
+                                alt="{{ $namaFoto }}"
+                                class="gallery-home-image w-100 h-100"
+                            >
 
-                        <div class="position-absolute bottom-0 start-0 w-100 p-3 d-flex flex-column justify-content-end" 
-                             style="background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%); height: 70%;">
-                            
-                            <h5 class="text-white fw-bold mb-1 fs-6 text-truncate" title="{{ $item->nama_tempat ?? $item->judul }}">
-                                {{ $item->nama_tempat ?? $item->judul ?? 'Dokumentasi Sekolah' }}
-                            </h5>
+                            <div class="gallery-home-overlay position-absolute bottom-0 start-0 w-100 d-flex flex-column justify-content-end p-3">
+                                <h5 class="text-white fw-bold mb-1 fs-6 text-truncate"
+                                    title="{{ $namaFoto }}">
+                                    {{ $namaFoto }}
+                                </h5>
 
-                            @if(isset($item->created_at))
-                                <span class="text-white-50 small" style="font-size: 0.75rem;">
-                                    <i class="bi bi-calendar3 me-1"></i> {{ $item->created_at->format('d M Y') }}
+                                <span class="text-white-50 small">
+                                    <i class="bi bi-calendar3 me-1"></i>
+                                    {{ $tanggalFoto }}
                                 </span>
-                            @endif
-                        </div>
+                            </div>
 
-                    </div>
+                            <div class="gallery-zoom-icon">
+                                <i class="bi bi-arrows-fullscreen"></i>
+                            </div>
+                        </div>
+                    </button>
                 </div>
+
             @empty
                 <div class="col-12 text-center py-5 text-muted">
                     <i class="bi bi-images fs-1 d-block mb-2 text-secondary"></i>
                     <p class="mb-0">Belum ada foto galeri yang diunggah.</p>
                 </div>
             @endforelse
-
         </div>
 
         @if(isset($galeris) && $galeris->isNotEmpty())
             <div class="text-center mt-4 mt-md-5">
-                <a href="{{ url('/galeri') }}" class="btn btn-purple btn-lg fw-semibold px-4 py-2 shadow-sm fs-6">
-                    Lihat Selengkapnya <i class="bi bi-chevron-right ms-1"></i>
+                <a href="{{ url('/galeri') }}"
+                   class="btn btn-purple btn-lg fw-semibold px-4 py-2 shadow-sm fs-6">
+                    Lihat Selengkapnya
+                    <i class="bi bi-chevron-right ms-1"></i>
                 </a>
             </div>
         @endif
@@ -585,174 +650,214 @@
     </div>
 </section>
 
-<<<<<<< HEAD
-    <!-- Card Rating Modern -->
-<div class="card border-0 shadow-sm rounded-4 p-4 text-center mx-auto my-4" style="max-width: 380px; background: linear-gradient(145deg, #ffffff, #f8f9fa);">
+<!-- Modal Detail Galeri -->
+<div class="modal fade" id="galleryDetailModal" tabindex="-1"
+     aria-hidden="true">
 
-    <!-- Judul / Teks Utama -->
-    <h5 class="fw-bold text-dark mb-1">Seberapa puas kamu dengan website ini?</h5>
-    <p class="text-muted small mb-3">Klik bintang di bawah untuk memberikan penilaian</p>
-    
-    <!-- Wrapper Bintang Interaktif -->
-    <div class="rating-stars d-flex justify-content-center gap-2 mb-2" style="cursor: pointer; user-select: none;">
-        @for ($i = 1; $i <= 5; $i++)
-            <i class="bi bi-star star-btn fs-1 text-warning" data-value="{{ $i }}" style="transition: transform 0.2s ease;"></i>
-        @endfor
-    </div>
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content gallery-modal-content">
 
-    <!-- Status Notifikasi / Pesan Terima Kasih -->
-    <div id="rating-message" class="small fw-semibold text-success mt-2" style="display: none;"></div>
-</div>
+            <div class="modal-body p-0">
+                <div class="row g-0">
 
-<!-- Meta CSRF Token (Wajib di Laravel) -->
-<meta name="csrf-token" content="{{ csrf_token() }}">
+                    <!-- Gambar -->
+                    <div class="col-md-8 bg-dark">
+                        <img
+                            src=""
+                            alt="Foto galeri sekolah"
+                            id="galleryModalImage"
+                            class="gallery-modal-image"
+                        >
+                    </div>
 
-<!-- CSS Khusus Efek Hover Bintang -->
-<style>
-    .star-btn:hover {
-        transform: scale(1.25);
-    }
-</style>
+                    <!-- Informasi -->
+                    <div class="col-md-4">
+                        <div class="gallery-modal-info">
 
-<!-- JavaScript AJAX Interaktif -->
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const stars = document.querySelectorAll(".star-btn");
-    const messageBox = document.getElementById("rating-message");
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                            <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
+                                <div class="d-flex align-items-center gap-2">
+                                    <img
+                                        src="{{ asset('images/logo-smkn4.svg') }}"
+                                        alt="Logo SMKN 4"
+                                        width="35"
+                                        height="35"
+                                    >
 
-    // 1. Efek Visual saat Kursor Diarahkan (Hover)
-    stars.forEach((star, index) => {
-        star.addEventListener("mouseover", function () {
-            highlightStars(index + 1);
-        });
+                                    <div>
+                                        <div class="fw-bold small">
+                                            SMKN 4 Bogor
+                                        </div>
+                                        <small class="text-muted">
+                                            Galeri Sekolah
+                                        </small>
+                                    </div>
+                                </div>
 
-        star.addEventListener("mouseleave", function () {
-            resetStars();
-        });
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Tutup"
+                                ></button>
+                            </div>
 
-        // 2. Klik Bintang untuk Kirim Rating via AJAX
-        star.addEventListener("click", function () {
-            const selectedStars = this.getAttribute("data-value");
+                            <div class="mt-2">
+                                <h5
+                                    class="gallery-modal-title mb-2"
+                                    id="galleryModalTitle">
+                                </h5>
 
-            fetch('/api/ratings', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken
-                },
-                body: JSON.stringify({ stars: selectedStars })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    // Tampilkan pesan ucapan terima kasih
-                    messageBox.innerText = "✨ " + data.message;
-                    messageBox.style.display = "block";
+                                <div class="gallery-modal-date">
+                                    <i class="bi bi-calendar3 me-1"></i>
+                                    <span id="galleryModalDate"></span>
+                                </div>
+                            </div>
 
-                    // Pertahankan tampilan bintang yang dipilih
-                    highlightStars(selectedStars, true);
-                }
-            })
-            .catch(err => console.error("Error:", err));
-        });
-    });
+                            <div class="mt-auto pt-4">
+                                <div class="border-top pt-3 text-muted small">
+                                    <i class="bi bi-camera me-1"></i>
+                                    Dokumentasi kegiatan SMK Negeri 4 Kota Bogor.
+                                </div>
+                            </div>
 
-    function highlightStars(count, isPermanent = false) {
-        stars.forEach((s, idx) => {
-            if (idx < count) {
-                s.classList.remove("bi-star");
-                s.classList.add("bi-star-fill");
-            } else {
-                s.classList.remove("bi-star-fill");
-                s.classList.add("bi-star");
-            }
-        });
-    }
+                        </div>
+                    </div>
 
-    function resetStars() {
-        // Jika belum diklik, bintang kembali kosong saat kursor keluar
-        if (messageBox.style.display !== "block") {
-            stars.forEach(s => {
-                s.classList.remove("bi-star-fill");
-                s.classList.add("bi-star");
-            });
-        }
-    }
-});
-</script>
-=======
-    <!-- Section Rating Website -->
-    <section class="py-4 bg-light border-top">
-        <div class="container text-center">
-            <h6 class="fw-bold mb-2">Beri Penilaian untuk Website Kami</h6>
-            <p class="text-muted small mb-3">
-                Bagaimana pengalaman Anda saat menjelajahi website SMKN 4 Bogor?
-            </p>
-
-            <div class="star-rating d-inline-flex gap-1 fs-3 mb-2" id="starContainer">
-                <i class="bi bi-star star-btn" data-value="1"></i>
-                <i class="bi bi-star star-btn" data-value="2"></i>
-                <i class="bi bi-star star-btn" data-value="3"></i>
-                <i class="bi bi-star star-btn" data-value="4"></i>
-                <i class="bi bi-star star-btn" data-value="5"></i>
+                </div>
             </div>
 
-            <div id="ratingMessage" class="small mt-1 text-success d-none"></div>
         </div>
-    </section>
+    </div>
+</div>
+    
+<!-- Section Rating Website -->
+<section class="py-4 bg-light border-top">
+    <div class="container text-center">
+        <h6 class="fw-bold mb-2">Beri Penilaian untuk Website Kami</h6>
+        <p class="text-muted small mb-3">
+            Bagaimana pengalaman Anda saat menjelajahi website SMKN 4 Bogor?
+        </p>
 
-    <!-- JavaScript Rating -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const stars = document.querySelectorAll('.star-btn');
-        const message = document.getElementById('ratingMessage');
-        let selectedRating = 0;
+        <!-- Bintang Rating -->
+        <div class="star-rating d-inline-flex gap-2 fs-3 mb-2"
+             id="starContainer">
+            <i class="bi bi-star star-btn" data-value="1"></i>
+            <i class="bi bi-star star-btn" data-value="2"></i>
+            <i class="bi bi-star star-btn" data-value="3"></i>
+            <i class="bi bi-star star-btn" data-value="4"></i>
+            <i class="bi bi-star star-btn" data-value="5"></i>
+        </div>
 
+        <!-- Notifikasi -->
+        <div id="ratingMessage"
+             class="alert d-none mt-3 mx-auto small"
+             style="max-width: 400px;"
+             role="alert">
+        </div>
+    </div>
+</section>
+
+<!-- JavaScript Rating -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const stars = document.querySelectorAll('.star-btn');
+    const message = document.getElementById('ratingMessage');
+    const starContainer = document.getElementById('starContainer');
+
+    let selectedRating = 0;
+    let isSubmitting = false;
+
+    function highlightStars(count) {
         stars.forEach(star => {
-            star.addEventListener('mouseover', () => {
-                highlightStars(star.dataset.value);
-            });
+            const value = Number(star.dataset.value);
+            star.classList.toggle('bi-star-fill', value <= count);
+            star.classList.toggle('bi-star', value > count);
+        });
+    }
 
-            star.addEventListener('mouseleave', () => {
-                highlightStars(selectedRating);
-            });
+    function showMessage(text, type) {
+        message.className = `alert alert-${type} mt-3 mx-auto small`;
+        message.style.maxWidth = '400px';
+        message.textContent = text;
+        message.classList.remove('d-none');
+    }
 
-            star.addEventListener('click', () => {
-                selectedRating = star.dataset.value;
-                highlightStars(selectedRating);
+    stars.forEach(star => {
+        star.style.cursor = 'pointer';
+        star.style.color = '#ffc107';
 
-                fetch("{{ route('rating.store') }}", {
-                    method: "POST",
+        star.addEventListener('mouseover', function () {
+            if (!isSubmitting && selectedRating === 0) {
+                highlightStars(Number(this.dataset.value));
+            }
+        });
+
+        star.addEventListener('mouseleave', function () {
+            highlightStars(selectedRating);
+        });
+
+        star.addEventListener('click', async function () {
+            if (isSubmitting || selectedRating !== 0) return;
+
+            selectedRating = Number(this.dataset.value);
+            highlightStars(selectedRating);
+            isSubmitting = true;
+
+            try {
+                const response = await fetch("{{ route('rating.store') }}", {
+                    method: 'POST',
                     headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
+                    credentials: 'same-origin',
                     body: JSON.stringify({
                         stars: selectedRating
                     })
-                })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        message.classList.remove('d-none');
-                        message.innerText = data.message;
-                        document.getElementById('starContainer').style.pointerEvents = 'none';
-                    }
-                })
-                .catch(error => console.error(error));
-            });
-        });
+                });
 
-        function highlightStars(count) {
-            stars.forEach(star => {
-                star.classList.toggle('bi-star-fill', star.dataset.value <= count);
-                star.classList.toggle('bi-star', star.dataset.value > count);
-            });
-        }
+                const data = await response.json();
+
+                if (!response.ok || !data.success) {
+                    throw new Error(data.message || 'Gagal mengirim rating.');
+                }
+
+                showMessage(
+                    data.message || 'Terima kasih telah memberikan rating!',
+                    'success'
+                );
+
+                starContainer.style.pointerEvents = 'none';
+                starContainer.style.opacity = '0.7';
+
+            } catch (error) {
+                console.error('Rating error:', error);
+
+                selectedRating = 0;
+                highlightStars(0);
+
+                showMessage(
+                    'Maaf, rating gagal dikirim. Silakan coba lagi.',
+                    'danger'
+                );
+
+                isSubmitting = false;
+            }
+        });
     });
-    </script>
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
+});
+</script>
+
+<style>
+    .star-btn {
+        transition: transform 0.2s ease;
+    }
+
+    .star-btn:hover {
+        transform: scale(1.15);
+    }
+</style>
 
     <!-- Footer -->
     <footer class="bg-dark text-white pt-5 pb-4 mt-3">
@@ -814,7 +919,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </li>
                         <li class="d-flex gap-2 align-items-center justify-content-center justify-content-md-start">
                             <i class="bi bi-telephone-fill text-primary"></i>
-                            <span>(0251) 8242411</span>
+                            <span>+62 0858 9021 3624</span>
                         </li>
                         <li class="d-flex gap-2 align-items-center justify-content-center justify-content-md-start">
                             <i class="bi bi-envelope-fill text-primary"></i>
@@ -832,11 +937,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     &copy; {{ date('Y') }} SMKN 4 Kota Bogor. All rights reserved.
                 </div>
                 <div class="col-md-6 text-center text-md-end">
-<<<<<<< HEAD
                     <span>Dikembangkan oleh <strong class="text-white">Tim FrameProject</strong></span>
-=======
-                    <span>Dikembangkan oleh <strong class="text-white">Tim SMKN 4 Bogor</strong></span>
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
                 </div>
             </div>
         </div>
@@ -844,7 +945,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<<<<<<< HEAD
 
     <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -892,8 +992,24 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 </script>
+<script>
+    const galleryModal = document.getElementById('galleryDetailModal');
 
-=======
->>>>>>> 517743f42db5100355eebadb92895218bc45f120
+    galleryModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+
+        const image = button.getAttribute('data-image');
+        const title = button.getAttribute('data-title');
+        const date = button.getAttribute('data-date');
+
+        document.getElementById('galleryModalImage').src = image;
+        document.getElementById('galleryModalTitle').textContent = title;
+        document.getElementById('galleryModalDate').textContent = date;
+    });
+
+    galleryModal.addEventListener('hidden.bs.modal', function () {
+        document.getElementById('galleryModalImage').src = '';
+    });
+</script>
 </body>
 </html>
